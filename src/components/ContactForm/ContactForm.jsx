@@ -3,7 +3,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useState } from 'react';
 import { Form } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
-import { add } from 'redux/contactsSlice';
+import { addContact } from 'redux/contactsSlice';
 import * as selectors from '../../redux/selectors';
 
 const ContactForm = () => {
@@ -30,7 +30,7 @@ const ContactForm = () => {
         }
       );
     }
-    dispatch(add(newContact));
+    dispatch(addContact(newContact));
     reset();
   };
 

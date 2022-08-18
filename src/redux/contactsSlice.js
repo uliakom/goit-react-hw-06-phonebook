@@ -16,17 +16,18 @@ const defaultContacts =[
    },
     
     reducers: {
-        add:(state, action)=> {
-           state.contacts.push(action.payload);
-     }   
-     },
-     remove:(state, action)=> {
-       state.contacts = state.contacts.filter(contact => contact.id !== action.payload)
-    },
-     filterContact:(state, action)=> {
-         state.filter = action.payload;
+       addContact: (state, action) => {
+          state.contacts.push(action.payload);
+       },
+       removeContact: (state, {payload: id}) => {
+          state.contacts = state.contacts
+             .filter(contact => contact.id !== id)
+       },
+       filterContact: (state, action) => {
+          state.filter = action.payload;
+       }
     }
  });
 
-export const { add, remove, filterContact } = phoneBookSlice.actions;
+export const { addContact, removeContact, filterContact } = phoneBookSlice.actions;
 
